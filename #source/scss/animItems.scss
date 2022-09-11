@@ -1,0 +1,9 @@
+._anim-item {
+    opacity: 0;
+    transform: translate(0px,10%);
+    transition: all 1s ease 0s;
+}
+._anim-item._fade {
+    opacity: 1;
+    transform: translate(0px,0px);
+}

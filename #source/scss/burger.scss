@@ -1,0 +1,77 @@
+// Стиль иконки бургера
+.menu__icon {
+    top: 20px;
+    right: 10px;
+    z-index: 5;
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 18px;
+    cursor: pointer;
+    &::after,
+    &::before {
+        content: "";
+    }
+    span,
+    &::after,
+    &::before{
+        left: 0;
+        position: absolute;
+        height: 10%;
+        width: 100%;
+        background-color: #fff;
+        transition: all 0.3s ease 0s;
+    }
+    span {
+        top: 50%;
+        transform: scale(1) translate(0px, -50%);
+    }
+    &::before{
+        top: 0;
+    }
+    &::after{
+        bottom: 0;
+    }
+}
+
+.menu__icon {
+    &._active {
+        span {
+            transform: scale(0) translate(0px, -50%);
+        }
+        &::before{
+            top: 50%;
+            transform: rotate(-45deg) translate(0px, -50%);
+        }
+        &::after{
+            bottom: 50%;
+            transform: rotate(45deg) translate(0px, 50%);
+        }
+    }
+}
+
+@media (max-width: 767px){
+    .menu__body {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.9);
+        transition: left 0.3 ease 0s;
+        overflow: auto;
+        &._active {
+            left: 0;
+        }
+        &::before{
+            content:'';
+            position: fixed;
+            width: 100px;
+            top: 0;
+            left: 0;
+            height: 70px; //Высота шапки
+            background-color: #fff;
+            z-index: 2;
+        }
+    }
+}
